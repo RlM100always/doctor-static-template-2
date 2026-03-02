@@ -246,18 +246,20 @@ h1, h2, h3, h4, h5 {
 .logo__monogram {
   width: 50px;
   height: 50px;
-  background: var(--navy);
-  color: var(--ivory);
-  border-radius: var(--r-sm);
+  border-radius: 50%;         /* পুরো গোলাকার করে দেয় */
+  overflow: hidden;           /* div-এর বাইরে কোনো অংশ দেখা যাবে না */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  border: 2px solid var(--crimson);
+  border: 1px solid rgba(255,255,255,0.2); /* optional border */
   flex-shrink: 0;
+}
+
+.logo__monogram img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* div-এর ভিতরে ছবি ফিট হবে */
+  display: block;             /* কোনো extra gap বা inline issue বন্ধ করে */
 }
 .logo__name {
   display: block;
@@ -1449,6 +1451,39 @@ h1, h2, h3, h4, h5 {
 .appt-contact p { font-size: 0.84rem; color: var(--ink-light); display: flex; align-items: center; justify-content: center; gap: 8px; }
 .appt-contact i { color: var(--crimson); }
 
+/* Success Modal */
+.success-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.success-modal .success-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.success-modal .success-icon {
+  font-size: 3rem;
+  color: #38a169; /* Green */
+  margin-bottom: 1rem;
+}
+
+.success-modal.show {
+  display: flex;
+}
+
 /* ════════════════════════════════════════════
    REVIEWS
 ════════════════════════════════════════════ */
@@ -1653,6 +1688,34 @@ h1, h2, h3, h4, h5 {
   transition: gap var(--dur) var(--ease);
 }
 .blog-link:hover { gap: 14px; }
+.blog-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.blog-modal-content {
+  background: #fff;
+  width: 90%;
+  max-width: 800px;
+  padding: 20px;
+  border-radius: 10px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 25px;
+  cursor: pointer;
+}
 
 /* ════════════════════════════════════════════
    MEDIA
@@ -2087,13 +2150,90 @@ h1, h2, h3, h4, h5 {
   .about-layout, .contact-layout, .appt-layout, .fees-layout, .chamber-layout { flex-direction: column; }
   .about-stats-grid { grid-template-columns: 1fr 1fr; }
   .astat--primary { grid-column: 1 / -1; }
-  .footer__top-inner { flex-direction: column; align-items: center; text-align: center; }
-  .footer__socials { justify-content: center; }
-  .footer__bottom-inner { flex-direction: column; text-align: center; }
+  
   .btt { bottom: 16px; right: 16px; width: 42px; height: 42px; }
 }
 
 @media (max-width: 400px) {
   .hero__title { font-size: 2.4rem; }
   .hero__portrait { width: 200px; height: 240px; }
+}
+@media (max-width: 640px) {
+
+  /* Fees Section Flex Fix */
+  .fees-layout,
+  .appt-layout {
+    flex-direction: column;
+    align-items: center; /* পুরো ব্লককে সেন্টার করবে */
+  }
+
+  /* Fees Table Wrapper */
+  .fees-table-wrap,
+  .fees-note-box {
+    width: 100%;
+    max-width: 520px;  /* সুন্দর centered look */
+    margin: 0 auto;
+    overflow-x: auto;  /* ছোট স্ক্রিনে horizontal scroll */
+  }
+
+  /* Fees Table Responsive */
+  .fees-table {
+    width: 100%;       /* টেবিল পুরো প্রস্থ নেবে */
+    border-collapse: collapse; 
+    text-align: center; /* text-centered inside table */
+  }
+
+  .fees-table th,
+  .fees-table td {
+    padding: 8px 10px; /* মোবাইলে spacing ঠিক রাখতে */
+    font-size: 14px;
+  }
+
+  /* Appointment Form Fix */
+  .appt-form-wrap,
+  .appt-sidebar {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: left;  /* লেখা বাম পাশে থাকবে */
+  }
+}
+
+@media (max-width: 640px) {
+
+  .footer__top-inner {
+    gap: 24px; /* আগে 36px ছিল, কমানো হলো */
+  }
+
+  .footer__brand {
+    margin-bottom: 8px;
+  }
+
+  .footer__brand h3 {
+    margin-bottom: 6px;
+  }
+
+  .footer__nav {
+    gap: 6px; /* link গুলোর মধ্যে কম gap */
+  }
+
+  .footer__nav h5 {
+    margin-bottom: 4px;
+  }
+
+  .footer__contact-info {
+    gap: 6px;
+  }
+
+  .footer__contact-info h5 {
+    margin-bottom: 4px;
+  }
+
+  .footer__socials {
+    margin-top: 6px;
+  }
+
+  .footer__bottom {
+    padding: 18px 0;
+  }
 }

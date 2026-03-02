@@ -24,7 +24,7 @@
   <header class="header" id="header">
     <div class="header__container">
       <a href="#home" class="logo">
-        <div class="logo__monogram">ডা·চ</div>
+        <div class="logo__monogram"><img src="https://cdn.sasthyaseba.com/doctors/7410/xoWEh5iyzT9wpngIPNnKbQQiN5AnbUCE8y2hJYpv/dr-sanjida-hossain.jpg"></div>
         <div class="logo__info">
           <span class="logo__name">ডাঃ সানজিদা ইসলাম চৌধুরী</span>
           <span class="logo__deg">MBBS · FCPS · MRCOG</span>
@@ -137,7 +137,7 @@
           <div class="hero__img-accent hero__img-accent--1"></div>
           <div class="hero__img-accent hero__img-accent--2"></div>
           <div class="hero__portrait">
-            <img src="https://img.freepik.com/premium-photo/portrait-female-doctor-white-coat-stethoscope_73944-4.jpg?w=600"
+            <img src="https://cdn.sasthyaseba.com/doctors/7410/xoWEh5iyzT9wpngIPNnKbQQiN5AnbUCE8y2hJYpv/dr-sanjida-hossain.jpg"
                  alt="ডাঃ সানজিদা ইসলাম চৌধুরী" />
           </div>
           <div class="hero__floating-tag hero__floating-tag--top">
@@ -632,106 +632,105 @@
     </div>
   </section>
 
-  <!-- ══════ APPOINTMENT ══════ -->
-  <section id="appointment" class="section sec-appt">
-    <div class="sec-num">০৭</div>
-    <div class="wrap">
-      <div class="sec-header">
-        <div class="sec-header__tag">বুকিং</div>
-        <h2 class="sec-header__title">অনলাইন<br/><em>অ্যাপয়েন্টমেন্ট</em></h2>
-        <div class="sec-header__rule"></div>
+<!-- ══════ APPOINTMENT ══════ -->
+<section id="appointment" class="section sec-appt">
+  <div class="sec-num">০৭</div>
+  <div class="wrap">
+    <div class="sec-header">
+      <div class="sec-header__tag">বুকিং</div>
+      <h2 class="sec-header__title">অনলাইন<br/><em>অ্যাপয়েন্টমেন্ট</em></h2>
+      <div class="sec-header__rule"></div>
+    </div>
+
+    <div class="appt-layout">
+      <div class="appt-form-wrap">
+        <form id="apptForm" novalidate>
+          <div class="form-grid">
+            <div class="fg">
+              <label><i class="fas fa-user"></i> রোগীর নাম <em>*</em></label>
+              <input type="text" id="aName" placeholder="পূর্ণ নাম লিখুন" required />
+              <span class="err" id="aNameErr"></span>
+            </div>
+            <div class="fg">
+              <label><i class="fas fa-phone"></i> মোবাইল নম্বর <em>*</em></label>
+              <input type="tel" id="aPhone" placeholder="০১XXXXXXXXX" required />
+              <span class="err" id="aPhoneErr"></span>
+            </div>
+            <div class="fg">
+              <label for="aDate"><i class="fas fa-calendar"></i> তারিখ নির্বাচন *</label>
+              <input type="date" id="aDate" required />
+              <span class="err" id="aDateErr"></span>
+            </div>
+            <div class="fg">
+              <label><i class="fas fa-clock"></i> সময় <em>*</em></label>
+              <select id="aTime" required>
+                <option value="">সময় বেছে নিন</option>
+                <option>সকাল ৯:০০ টা</option>
+                <option>সকাল ১০:০০ টা</option>
+                <option>সকাল ১১:০০ টা</option>
+                <option>বিকাল ৫:০০ টা</option>
+                <option>বিকাল ৬:০০ টা</option>
+                <option>সন্ধ্যা ৭:০০ টা</option>
+              </select>
+              <span class="err" id="aTimeErr"></span>
+            </div>
+          </div>
+
+          <div class="fg fg--full">
+            <label><i class="fas fa-notes-medical"></i> সমস্যার বিবরণ</label>
+            <textarea id="aNote" rows="4" placeholder="আপনার সমস্যা সংক্ষেপে জানান..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-check-circle"></i> অ্যাপয়েন্টমেন্ট নিশ্চিত করুন
+          </button>
+
+          <div class="success-modal" id="successModal">
+            <div class="success-card">
+              <i class="fas fa-check-circle success-icon"></i>
+              <h3>অ্যাপয়েন্টমেন্ট নিশ্চিত হয়েছে!</h3>
+              <p>শীঘ্রই আপনাকে ফোন করে জানানো হবে।</p>
+              <button id="closeModalBtn" class="btn btn--gold">ঠিক আছে</button>
+            </div>
+          </div>
+        </form>
       </div>
 
-      <div class="appt-layout">
-        <div class="appt-form-wrap">
-          <form id="apptForm" novalidate>
-            <div class="form-grid">
-              <div class="fg">
-                <label><i class="fas fa-user"></i> রোগীর নাম <em>*</em></label>
-                <input type="text" id="aName" placeholder="পূর্ণ নাম লিখুন" required />
-                <span class="err" id="aNameErr"></span>
-              </div>
-              <div class="fg">
-                <label><i class="fas fa-phone"></i> মোবাইল নম্বর <em>*</em></label>
-                <input type="tel" id="aPhone" placeholder="০১XXXXXXXXX" required />
-                <span class="err" id="aPhoneErr"></span>
-              </div>
-              <div class="fg">
-                <label><i class="fas fa-calendar"></i> তারিখ <em>*</em></label>
-                <select id="aDate" required>
-                  <option value="">তারিখ বেছে নিন</option>
-                  <option>১৪ মে ২০২৬ (মিরপুর)</option>
-                  <option>১৫ মে ২০২৬ (মগবাজার)</option>
-                  <option>১৭ মে ২০২৬ (মিরপুর)</option>
-                  <option>১৮ মে ২০২৬ (মগবাজার)</option>
-                  <option>২০ মে ২০২৬ (মিরপুর)</option>
-                </select>
-                <span class="err" id="aDateErr"></span>
-              </div>
-              <div class="fg">
-                <label><i class="fas fa-clock"></i> সময় <em>*</em></label>
-                <select id="aTime" required>
-                  <option value="">সময় বেছে নিন</option>
-                  <option>সকাল ৯:০০ টা</option>
-                  <option>সকাল ১০:০০ টা</option>
-                  <option>সকাল ১১:০০ টা</option>
-                  <option>বিকাল ৫:০০ টা</option>
-                  <option>বিকাল ৬:০০ টা</option>
-                  <option>সন্ধ্যা ৭:০০ টা</option>
-                </select>
-                <span class="err" id="aTimeErr"></span>
-              </div>
+      <div class="appt-sidebar">
+        <div class="appt-pay">
+          <h4><i class="fas fa-mobile-alt"></i> মোবাইল পেমেন্ট</h4>
+          <p>অগ্রিম বুকিং ফি পাঠান</p>
+          <div class="pay-amount">৳ ৩০০</div>
+          <div class="pay-methods">
+            <div class="pay-row">
+              <span class="pay-label bkash">bKash</span>
+              <span class="pay-num">০১৮১১-২২৩৩৪৪</span>
             </div>
-            <div class="fg fg--full">
-              <label><i class="fas fa-notes-medical"></i> সমস্যার বিবরণ</label>
-              <textarea id="aNote" rows="4" placeholder="আপনার সমস্যা সংক্ষেপে জানান..."></textarea>
+            <div class="pay-row">
+              <span class="pay-label nagad">Nagad</span>
+              <span class="pay-num">০১৮১১-২২৩৩৪৪</span>
             </div>
-            <button type="submit" class="submit-btn">
-              <i class="fas fa-check-circle"></i> অ্যাপয়েন্টমেন্ট নিশ্চিত করুন
-            </button>
-            <div class="form-ok" id="apptOk" style="display:none;">
-              <i class="fas fa-check-circle"></i> অ্যাপয়েন্টমেন্ট সফলভাবে নিবন্ধিত হয়েছে! এসএমএস পাঠানো হবে।
+            <div class="pay-row">
+              <span class="pay-label rocket">Rocket</span>
+              <span class="pay-num">০১৮১১২২৩৩৪৪৭</span>
             </div>
-          </form>
+          </div>
+          <div class="qr-box">
+            <i class="fas fa-qrcode"></i>
+            <span>bKash QR স্ক্যান করুন</span>
+          </div>
         </div>
 
-        <div class="appt-sidebar">
-          <div class="appt-pay">
-            <h4><i class="fas fa-mobile-alt"></i> মোবাইল পেমেন্ট</h4>
-            <p>অগ্রিম বুকিং ফি পাঠান</p>
-            <div class="pay-amount">৳ ৩০০</div>
-
-            <div class="pay-methods">
-              <div class="pay-row">
-                <span class="pay-label bkash">bKash</span>
-                <span class="pay-num">০১৮১১-২২৩৩৪৪</span>
-              </div>
-              <div class="pay-row">
-                <span class="pay-label nagad">Nagad</span>
-                <span class="pay-num">০১৮১১-২২৩৩৪৪</span>
-              </div>
-              <div class="pay-row">
-                <span class="pay-label rocket">Rocket</span>
-                <span class="pay-num">০১৮১১২২৩৩৪৪৭</span>
-              </div>
-            </div>
-
-            <div class="qr-box">
-              <i class="fas fa-qrcode"></i>
-              <span>bKash QR স্ক্যান করুন</span>
-            </div>
-          </div>
-
-          <div class="appt-contact">
-            <a href="https://wa.me/8801811223344" target="_blank" class="wa-btn">
-              <i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপে বার্তা দিন
-            </a>
-            <p><i class="fas fa-sms"></i> বুকিং নিশ্চিতকরণ এসএমএস পাবেন</p>
-          </div>
+        <div class="appt-contact">
+          <a href="https://wa.me/8801811223344" target="_blank" class="wa-btn">
+            <i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপে বার্তা দিন
+          </a>
+          <p><i class="fas fa-sms"></i> বুকিং নিশ্চিতকরণ এসএমএস পাবেন</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- ══════ REVIEWS ══════ -->
   <section id="reviews" class="section sec-reviews">
@@ -853,7 +852,10 @@
       <div class="vid-grid">
         <div class="vid-card">
           <div class="vid-frame">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="গর্ভাবস্থার যত্ন" loading="lazy"></iframe>
+           <iframe src="https://www.youtube.com/embed/nICE29D_27A" title="ডায়াবেটিস নিয়ন্ত্রণ" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+              allowfullscreen loading="lazy">
+            </iframe>
           </div>
           <div class="vid-info">
             <span class="vid-tag">গর্ভাবস্থা</span>
@@ -862,8 +864,10 @@
         </div>
         <div class="vid-card">
           <div class="vid-frame">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="পিসিওএস" loading="lazy"></iframe>
-          </div>
+<iframe src="https://www.youtube.com/embed/JF6Vfl6qz8o" title="ডায়াবেটিস নিয়ন্ত্রণ" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+              allowfullscreen loading="lazy">
+            </iframe>          </div>
           <div class="vid-info">
             <span class="vid-tag">পিসিওএস</span>
             <p>পিসিওএস থেকে স্বাভাবিক গর্ভধারণ — সম্ভব?</p>
@@ -871,8 +875,10 @@
         </div>
         <div class="vid-card">
           <div class="vid-frame">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="সিজার না স্বাভাবিক" loading="lazy"></iframe>
-          </div>
+<iframe src="https://www.youtube.com/embed/m5U37nJ3V0k" title="ডায়াবেটিস নিয়ন্ত্রণ" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+              allowfullscreen loading="lazy">
+            </iframe>          </div>
           <div class="vid-info">
             <span class="vid-tag">প্রসব</span>
             <p>সিজার নাকি স্বাভাবিক প্রসব — সঠিক সিদ্ধান্ত কীভাবে নেবেন</p>
@@ -882,38 +888,74 @@
     </div>
   </section>
 
-  <!-- ══════ BLOG ══════ -->
-  <section id="blog" class="section sec-blog">
-    <div class="sec-num sec-num--light">১০</div>
-    <div class="wrap">
-      <div class="sec-header">
-        <div class="sec-header__tag">স্বাস্থ্য তথ্য</div>
-        <h2 class="sec-header__title">ডাক্তারের<br/><em>স্বাস্থ্য ব্লগ</em></h2>
-        <div class="sec-header__rule"></div>
-      </div>
-
-      <div class="blog-grid">
-        <article class="blog-post blog-post--large">
-          <div class="blog-post__cat"><i class="fas fa-baby"></i> গর্ভাবস্থা</div>
-          <h3>গর্ভাবস্থায় কী খাবেন, কী এড়িয়ে চলবেন?</h3>
-          <p>সুষম পুষ্টি, নিরাপদ ব্যায়াম এবং মানসিক স্বাস্থ্য — গর্ভকালীন সময়ে এই তিনটি বিষয়ে সঠিক জ্ঞান থাকা অত্যন্ত জরুরি। ডাঃ সানজিদার বিস্তারিত গাইড।</p>
-          <a href="#" class="blog-link">বিস্তারিত পড়ুন <i class="fas fa-long-arrow-alt-right"></i></a>
-        </article>
-        <article class="blog-post">
-          <div class="blog-post__cat"><i class="fas fa-female"></i> মহিলা স্বাস্থ্য</div>
-          <h3>পিসিওএস কী এবং কীভাবে নিয়ন্ত্রণ করবেন?</h3>
-          <p>পলিসিস্টিক ওভারি সিনড্রোমের লক্ষণ, কারণ ও আধুনিক চিকিৎসা পদ্ধতি নিয়ে বিস্তারিত আলোচনা।</p>
-          <a href="#" class="blog-link">বিস্তারিত পড়ুন <i class="fas fa-long-arrow-alt-right"></i></a>
-        </article>
-        <article class="blog-post">
-          <div class="blog-post__cat"><i class="fas fa-heartbeat"></i> জরুরি তথ্য</div>
-          <h3>প্রিক্ল্যাম্পসিয়া: নীরব বিপদ চেনার উপায়</h3>
-          <p>উচ্চ রক্তচাপজনিত গর্ভাবস্থার জটিলতা সময়মতো চিহ্নিত করুন এবং মা ও শিশুর জীবন রক্ষা করুন।</p>
-          <a href="#" class="blog-link">বিস্তারিত পড়ুন <i class="fas fa-long-arrow-alt-right"></i></a>
-        </article>
-      </div>
+<!-- ══════ BLOG ══════ -->
+<section id="blog" class="section sec-blog">
+  <div class="sec-num sec-num--light">১০</div>
+  <div class="wrap">
+    <div class="sec-header">
+      <div class="sec-header__tag">স্বাস্থ্য তথ্য</div>
+      <h2 class="sec-header__title">
+        ডাক্তারের<br /><em>স্বাস্থ্য ব্লগ</em>
+      </h2>
+      <div class="sec-header__rule"></div>
     </div>
-  </section>
+
+    <div class="blog-grid">
+
+      <!-- Blog 1 -->
+      <article class="blog-post blog-post--large" data-content="blog1">
+        <div class="blog-post__cat">
+          <i class="fas fa-baby"></i> গর্ভাবস্থা
+        </div>
+        <h3>গর্ভাবস্থায় কী খাবেন, কী এড়িয়ে চলবেন?</h3>
+        <p>
+          সুষম পুষ্টি, নিরাপদ ব্যায়াম এবং মানসিক স্বাস্থ্য —
+          গর্ভকালীন সময়ে এই তিনটি বিষয়ে সঠিক জ্ঞান থাকা অত্যন্ত জরুরি।
+        </p>
+        <a href="#" class="blog-link">
+          বিস্তারিত পড়ুন <i class="fas fa-long-arrow-alt-right"></i>
+        </a>
+      </article>
+
+      <!-- Blog 2 -->
+      <article class="blog-post" data-content="blog2">
+        <div class="blog-post__cat">
+          <i class="fas fa-female"></i> মহিলা স্বাস্থ্য
+        </div>
+        <h3>পিসিওএস কী এবং কীভাবে নিয়ন্ত্রণ করবেন?</h3>
+        <p>
+          পলিসিস্টিক ওভারি সিনড্রোমের লক্ষণ, কারণ ও আধুনিক চিকিৎসা পদ্ধতি।
+        </p>
+        <a href="#" class="blog-link">
+          বিস্তারিত পড়ুন <i class="fas fa-long-arrow-alt-right"></i>
+        </a>
+      </article>
+
+      <!-- Blog 3 -->
+      <article class="blog-post" data-content="blog3">
+        <div class="blog-post__cat">
+          <i class="fas fa-heartbeat"></i> জরুরি তথ্য
+        </div>
+        <h3>প্রিক্ল্যাম্পসিয়া: নীরব বিপদ চেনার উপায়</h3>
+        <p>
+          উচ্চ রক্তচাপজনিত গর্ভাবস্থার জটিলতা সময়মতো চিহ্নিত করুন।
+        </p>
+        <a href="#" class="blog-link">
+          বিস্তারিত পড়ুন <i class="fas fa-long-arrow-alt-right"></i>
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Modal Outside Grid (Important) -->
+<div id="blog-modal" class="blog-modal" style="display:none;">
+  <div class="blog-modal-content">
+    <span class="close-modal">&times;</span>
+    <div id="blog-modal-body"></div>
+  </div>
+</div>
 
   <!-- ══════ MEDIA ══════ -->
   <section class="section sec-media">
@@ -1089,76 +1131,73 @@
   </section>
 
   <!-- ══════ CONTACT ══════ -->
-  <section id="contact" class="section sec-contact">
-    <div class="sec-num">১৩</div>
-    <div class="wrap">
-      <div class="sec-header">
-        <div class="sec-header__tag">যোগাযোগ</div>
-        <h2 class="sec-header__title">আমাদের সাথে<br/><em>কথা বলুন</em></h2>
-        <div class="sec-header__rule"></div>
-      </div>
-
-      <div class="contact-layout">
-        <div class="contact-cards">
-          <a href="tel:+8801811223344" class="con-card">
-            <div class="con-card__ico"><i class="fas fa-phone-alt"></i></div>
-            <div>
-              <h4>ফোন</h4>
-              <p>+৮৮০ ১৮১১-২২৩৩৪৪</p>
-            </div>
-          </a>
-          <a href="https://wa.me/8801811223344" target="_blank" class="con-card con-card--wa">
-            <div class="con-card__ico"><i class="fab fa-whatsapp"></i></div>
-            <div>
-              <h4>হোয়াটসঅ্যাপ</h4>
-              <p>+৮৮০ ১৮১১-২২৩৩৪৪</p>
-            </div>
-          </a>
-          <a href="mailto:dr.sanjida@medicare.com.bd" class="con-card con-card--mail">
-            <div class="con-card__ico"><i class="fas fa-envelope"></i></div>
-            <div>
-              <h4>ইমেইল</h4>
-              <p>dr.sanjida@medicare.com.bd</p>
-            </div>
-          </a>
-          <a href="https://facebook.com/dr.sanjida.bd" target="_blank" class="con-card con-card--fb">
-            <div class="con-card__ico"><i class="fab fa-facebook-f"></i></div>
-            <div>
-              <h4>ফেসবুক</h4>
-              <p>facebook.com/dr.sanjida.bd</p>
-            </div>
-          </a>
-        </div>
-
-        <form class="contact-form" id="contactForm" novalidate>
-          <div class="fg-row">
-            <div class="fg">
-              <label>আপনার নাম *</label>
-              <input type="text" id="cName" placeholder="পূর্ণ নাম" required />
-            </div>
-            <div class="fg">
-              <label>মোবাইল নম্বর *</label>
-              <input type="tel" id="cPhone" placeholder="০১XXXXXXXXX" required />
-            </div>
-          </div>
-          <div class="fg">
-            <label>ইমেইল (ঐচ্ছিক)</label>
-            <input type="email" id="cEmail" placeholder="email@example.com" />
-          </div>
-          <div class="fg">
-            <label>আপনার বার্তা *</label>
-            <textarea id="cMsg" rows="5" placeholder="আপনার প্রশ্ন বা বার্তা লিখুন..." required></textarea>
-          </div>
-          <button type="submit" class="submit-btn submit-btn--green">
-            <i class="fas fa-paper-plane"></i> বার্তা পাঠান
-          </button>
-          <div class="form-ok" id="contactOk" style="display:none;">
-            <i class="fas fa-check-circle"></i> আপনার বার্তা পাঠানো হয়েছে! শীঘ্রই যোগাযোগ করা হবে।
-          </div>
-        </form>
-      </div>
+<section id="contact" class="section sec-contact">
+  <div class="sec-num">১৩</div>
+  <div class="wrap">
+    <div class="sec-header">
+      <div class="sec-header__tag">যোগাযোগ</div>
+      <h2 class="sec-header__title">আমাদের সাথে<br/><em>কথা বলুন</em></h2>
+      <div class="sec-header__rule"></div>
     </div>
-  </section>
+
+    <div class="contact-layout">
+      <!-- Contact Info Cards -->
+      <div class="contact-cards">
+        <a href="tel:+8801811223344" class="con-card">
+          <div class="con-card__ico"><i class="fas fa-phone-alt"></i></div>
+          <div><h4>ফোন</h4><p>+৮৮০ ১৮১১-২২৩৩৪৪</p></div>
+        </a>
+        <a href="https://wa.me/8801811223344" target="_blank" class="con-card con-card--wa">
+          <div class="con-card__ico"><i class="fab fa-whatsapp"></i></div>
+          <div><h4>হোয়াটসঅ্যাপ</h4><p>+৮৮০ ১৮১১-২২৩৩৪৪</p></div>
+        </a>
+        <a href="mailto:dr.sanjida@medicare.com.bd" class="con-card con-card--mail">
+          <div class="con-card__ico"><i class="fas fa-envelope"></i></div>
+          <div><h4>ইমেইল</h4><p>dr.sanjida@medicare.com.bd</p></div>
+        </a>
+        <a href="https://facebook.com/dr.sanjida.bd" target="_blank" class="con-card con-card--fb">
+          <div class="con-card__ico"><i class="fab fa-facebook-f"></i></div>
+          <div><h4>ফেসবুক</h4><p>facebook.com/dr.sanjida.bd</p></div>
+        </a>
+      </div>
+
+      <!-- Contact Form -->
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="fg-row">
+          <div class="fg">
+            <label>আপনার নাম *</label>
+            <input type="text" id="cName" placeholder="পূর্ণ নাম" required />
+          </div>
+          <div class="fg">
+            <label>মোবাইল নম্বর *</label>
+            <input type="tel" id="cPhone" placeholder="০১XXXXXXXXX" required />
+          </div>
+        </div>
+        <div class="fg">
+          <label>ইমেইল (ঐচ্ছিক)</label>
+          <input type="email" id="cEmail" placeholder="email@example.com" />
+        </div>
+        <div class="fg">
+          <label>আপনার বার্তা *</label>
+          <textarea id="cMsg" rows="5" placeholder="আপনার প্রশ্ন বা বার্তা লিখুন..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn submit-btn--green">
+          <i class="fas fa-paper-plane"></i> বার্তা পাঠান
+        </button>
+
+        <!-- Success Modal -->
+        <div class="success-modal" id="contactSuccessModal">
+          <div class="success-card">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h3>আপনার বার্তা পাঠানো হয়েছে!</h3>
+            <p>শীঘ্রই আপনাকে যোগাযোগ করা হবে।</p>
+            <button id="closeContactModal" class="btn btn--gold">ঠিক আছে</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
 
   <!-- ══════ FOOTER ══════ -->
   <footer class="footer">
